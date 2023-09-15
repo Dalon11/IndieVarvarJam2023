@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Jam.GameInput.Abstraction;
-using Jam.Fabric.Updator.Abstraction;
-using System;
 using Jam.Fabric.Initable.Abstraction;
+using Jam.Fabric.Updator.Abstraction;
+using Jam.GameInput.Abstraction;
 using Jam.Model.Abstraction;
+using System;
+using UnityEngine;
 
 namespace Jam.Player.Movement
 {
-    public class MovementController : IInitable<AbstractInput>, IInitable<IUpdator>, IInitable<GameObject>, IInitable<IModel>, IDisposable
+    public class MovementController : IInitializable<AbstractInput>, IInitializable<IUpdater>, IInitializable<GameObject>, IInitializable<IModel>, IDisposable
     {
         private Rigidbody _rigidbody;
         private AbstractInput _input;
-        private IUpdator _updator;
+        private IUpdater _updator;
         private IModel _model;
 
         private Vector3 _newPosition;
@@ -24,15 +22,20 @@ namespace Jam.Player.Movement
             _input = model;
         }
 
-        public void Init(IUpdator model)
+        public void Init(IUpdater model)
         {
             _updator = model;
-            _updator.OnUpdate += Move;
+            _updator.onFixedUpdate += Move;
         }
 
-        public void Dispose()
+        public void Init(GameObject model)
         {
-            _updator.OnUpdate -= Move;
+            _rigidbody = model.GetComponent<Rigidbody>();
+        }
+
+        public void Init(IModel model)
+        {
+            _model = model;
         }
 
         private void Move()
@@ -46,14 +49,10 @@ namespace Jam.Player.Movement
             _rigidbody.AddForce(_newPosition * _model.SpeedMove, ForceMode.Force);
         }
 
-        public void Init(GameObject model)
+        public void Dispose()
         {
-            _rigidbody = model.GetComponent<Rigidbody>();
+            _updator.onFixedUpdate -= Move;
         }
 
-        public void Init(IModel model)
-        {
-            _model = model;
-        }
     }
 }

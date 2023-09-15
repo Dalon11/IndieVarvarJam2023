@@ -13,5 +13,7 @@ namespace Jam.Model.Abstraction
         public float SpeedAttack { get; }
 
         public float Damage { get; }
+
+        public float ForceRotate { get; }
     }
 }
