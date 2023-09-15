@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
-namespace Jam.GameInput
+namespace Jam.GameInput.Abstraction
 {
     public abstract class AbstractInput : MonoBehaviour
     {
