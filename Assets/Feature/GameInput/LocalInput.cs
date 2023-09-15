@@ -5,24 +5,34 @@ using UnityEngine;
 
 namespace Jam.GameInput
 {
+    using Abstraction;
     public class LocalInput : AbstractInput
     {
         private readonly string _horizontal = "Horizontal";
         private readonly string _vertical = "Vertical";
-        public override IReactiveProperty<bool> AttackButtonDown => throw new System.NotImplementedException();
 
+        private ReactiveProperty<bool> _attackButtonDown;
+        private ReactiveProperty<float> _x;
+        private ReactiveProperty<float> _y;
 
-        public override IReactiveProperty<float> X => throw new System.NotImplementedException();
+        public override IReactiveProperty<bool> AttackButtonDown => _attackButtonDown;
 
-        public override IReactiveProperty<float> Y => throw new System.NotImplementedException();
+        public override IReactiveProperty<float> X => _x;
+
+        public override IReactiveProperty<float> Y => _y;
+        private void OnEnable()
+        {
+            _attackButtonDown = new ();
+            _x = new();
+            _y = new();
+        }
 
         private void Update()
         {
-            AttackButtonDown.Value = Input.GetMouseButtonDown(0);
+            _attackButtonDown.Value = Input.GetMouseButtonDown(0);
 
-            X.Value = Input.GetAxis(_horizontal);
-            Y.Value = Input.GetAxis(_vertical);
-
+            _x.Value = Input.GetAxis(_horizontal);
+            _y.Value = Input.GetAxis(_vertical);
         }
     }
 }
