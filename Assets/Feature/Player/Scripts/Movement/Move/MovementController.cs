@@ -7,12 +7,13 @@ using UnityEngine;
 
 namespace Jam.Player.Movement
 {
-    public class MovementController : IInitializable<AbstractInput>, IInitializable<IUpdater>, IInitializable<GameObject>, IInitializable<IModel>, IDisposable
+    public class MovementController : IInitializable<AbstractInput>, IInitializable<IStateModel>, IInitializable<IUpdater>, IInitializable<GameObject>, IInitializable<IModel>, IDisposable
     {
         private Rigidbody _rigidbody;
         private AbstractInput _input;
         private IUpdater _updator;
         private IModel _model;
+        private IStateModel _stateModel;
 
         private Vector3 _newPosition;
 
@@ -41,12 +42,14 @@ namespace Jam.Player.Movement
         private void Move()
         {
             if (_model == null || _input == null)
-                return;
+                return; 
 
-            _newPosition = _input.X.Value * Vector3.right + _input.Y.Value * Vector3.forward;
+              _newPosition = _input.X.Value * Vector3.right + _input.Y.Value * Vector3.forward;
             _newPosition = _newPosition.normalized;
 
             _rigidbody.AddForce(_newPosition * _model.SpeedMove, ForceMode.Force);
+
+            _stateModel.IsWalk = Mathf.Approximately(_rigidbody.velocity.x, 0) && Mathf.Approximately(_rigidbody.velocity.z, 0);
         }
 
         public void Dispose()
@@ -54,5 +57,9 @@ namespace Jam.Player.Movement
             _updator.onFixedUpdate -= Move;
         }
 
+        public void Init(IStateModel model)
+        {
+            _stateModel = model;
+        }
     }
 }

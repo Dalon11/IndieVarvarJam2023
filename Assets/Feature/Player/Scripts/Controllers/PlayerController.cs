@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace Jam.Player.Controllers
 {
+    using Views;
     using Movement;
 
     public class PlayerController : MonoBehaviour
@@ -18,6 +19,7 @@ namespace Jam.Player.Controllers
         [SerializeField] private GameObject heroPrefab;
         [SerializeField] private AbstractInput input;
         [SerializeField] private PlayerModel model;
+        [SerializeField] private StateModel stateModel;
 
         private List<IInitializable<GameObject>> _initableObjects;
         private Updater _updator;
