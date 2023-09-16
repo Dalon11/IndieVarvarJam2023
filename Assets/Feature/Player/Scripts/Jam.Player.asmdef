@@ -1,6 +1,6 @@
 {
     "name": "Jam.Player",
-    "rootNamespace": "",
+    "rootNamespace": "Jam.Player",
     "references": [
         "GUID:5055dfa6cbdc8034386586ed4ae174f2",
         "GUID:0001d07812e6df840bde019ddd1e47f6",

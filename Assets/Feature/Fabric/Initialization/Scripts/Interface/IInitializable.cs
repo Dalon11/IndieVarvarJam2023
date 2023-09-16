@@ -2,13 +2,13 @@
 namespace Jam.Fabric.Initable.Abstraction
 {
     /// <summary>
-    /// Интерфейс для добавления компонентов.
+    /// РРЅС‚РµСЂС„РµР№СЃ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IInitable<T>
+    public interface IInitializable<T>
     {
         /// <summary>
-        /// Метод для добавления компонентов. 
+        /// РњРµС‚РѕРґ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ. 
         /// </summary>
         /// <param name="model"></param>
         public void Init(T model);
