@@ -287,6 +287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 452178457932236788, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 559054354151526357, guid: d698c19e3e6679744a81790755b499f6, type: 3}
       propertyPath: m_Name
       value: MaleCharacterPolyart
