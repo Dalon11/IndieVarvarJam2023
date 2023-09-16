@@ -10,5 +10,12 @@ namespace Jam.Animation
 
         [SerializeField] private Animator animator;
 
+        private void Update()
+        {
+            animator.SetFloat("SpeedX", Input.GetAxis("Horizontal"));
+            animator.SetFloat("SpeedZ", Input.GetAxis("Vertical"));
+
+            animator.SetBool("IsAttack", Input.GetKey(KeyCode.Space)); 
+        }
     }
 }
