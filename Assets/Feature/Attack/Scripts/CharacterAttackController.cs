@@ -1,0 +1,37 @@
+using Jam.GameInput.Abstraction;
+using Jam.Player.Abstraction;
+using Jam.Player.Controllers;
+using UniRx;
+using UnityEngine;
+
+namespace Jam.Attack
+{
+    public class CharacterAttackController : MonoBehaviour
+    {
+        [SerializeField] Weapon weapon;
+        [SerializeField] AttackView view;
+        [SerializeField] PlayerController playerController;
+        [SerializeField] AbstractInput input;
+
+        private IMakeDamage damageController;
+
+        private void Start()
+        {
+            input.AttackButtonDown.Where(x => x).Subscribe(_ => Attack()).AddTo(this);
+
+            damageController = playerController.GetController<IMakeDamage>();
+            weapon.onTriggerEnter += damageController.MakeDamage;
+        }
+
+        private void OnDestroy()
+        {
+            weapon.onTriggerEnter -= damageController.MakeDamage;
+        }
+
+        public void Attack()
+        {
+            view.ShowAttack();
+        }
+
+    }
+}
