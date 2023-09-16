@@ -1,6 +1,6 @@
 {
     "name": "Jam.Enemy",
-    "rootNamespace": "",
+    "rootNamespace": "Jam.Enemy",
     "references": [
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
         "GUID:1664e92176d434ccd902c1705fefe682",
