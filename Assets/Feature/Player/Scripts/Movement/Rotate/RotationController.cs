@@ -7,19 +7,23 @@ using UnityEngine;
 
 namespace Jam.Player.Movement
 {
-    public class RotationController : IInitializable<IUpdater>, IInitializable<GameObject>, IInitializable<IModel>, IDisposable
+    public class RotationController : IInitializable<IUpdater>, IInitializable<GameObject>, IInitializable<IModel>, IInitializable<IStateModel>, IDisposable
     {
         private Transform _transform;
         private IUpdater _updator;
         private IModel _model;
-
+        private IStateModel _stateModel;
         private float _valueRotate;
+        private readonly string _mouseX = "Mouse X";
 
         public void Init(GameObject model)
         {
             _transform = model.transform;
+
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        public void Init(IStateModel model) => _stateModel = model;
 
         public void Init(IUpdater model)
         {
@@ -27,13 +31,14 @@ namespace Jam.Player.Movement
             _updator.onUpdate += Rotating;
         }
 
-        public void Init(IModel model)
-        {
-            _model = model;
-        }
+        public void Init(IModel model) => _model = model;
+
         private void Rotating()
         {
-            _valueRotate += Input.GetAxis("Mouse X");
+            //if (!_stateModel.CanWalk ||  _stateModel.IsDeath)
+            //    return;
+
+            _valueRotate += Input.GetAxis(_mouseX);
 
             _transform.rotation = Quaternion.Euler(0f, _valueRotate * _model.ForceRotate, 0f);
         }
@@ -41,6 +46,7 @@ namespace Jam.Player.Movement
         public void Dispose()
         {
             _updator.onUpdate -= Rotating;
+
             Cursor.lockState = CursorLockMode.Confined;
         }
     }

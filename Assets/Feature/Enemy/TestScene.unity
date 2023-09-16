@@ -260,10 +260,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 559054354151526357, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 934421511144892327, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2594673200142954812, guid: d698c19e3e6679744a81790755b499f6, type: 3}
-      propertyPath: input
+      propertyPath: weapon
       value: 
-      objectReference: {fileID: 1756700425}
+      objectReference: {fileID: 758278563}
+    - target: {fileID: 2594673200142954812, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+      propertyPath: animatorProvider
+      value: 
+      objectReference: {fileID: 1410271732}
+    - target: {fileID: 3668267843577681732, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6400466739498008509, guid: d698c19e3e6679744a81790755b499f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.939206
@@ -304,17 +320,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6757868708488781594, guid: d698c19e3e6679744a81790755b499f6, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
+    - target: {fileID: 7172129617444362478, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+      propertyPath: view
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5635792000161709924, guid: d698c19e3e6679744a81790755b499f6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1756700425}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d698c19e3e6679744a81790755b499f6, type: 3}
 --- !u!1 &574090950
 GameObject:
@@ -507,6 +520,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &758278563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5545340251744558240, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+  m_PrefabInstance: {fileID: 63327444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07ad491ba081d442ab6d413b54e13cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &897424141
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +625,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1410271732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2211507207254942875, guid: d698c19e3e6679744a81790755b499f6, type: 3}
+  m_PrefabInstance: {fileID: 63327444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560b81941d8323e42a8417e0426b0a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1443411486
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,18 +746,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5635792000161709924, guid: d698c19e3e6679744a81790755b499f6, type: 3}
   m_PrefabInstance: {fileID: 63327444}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1756700425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756700423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971284a05a614244bae13e44a678deb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1756700427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2594673200142954812, guid: d698c19e3e6679744a81790755b499f6, type: 3}

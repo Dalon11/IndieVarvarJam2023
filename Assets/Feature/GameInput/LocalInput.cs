@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+ 
 using UniRx;
 using UnityEngine;
 
@@ -20,6 +19,7 @@ namespace Jam.GameInput
         public override IReactiveProperty<float> X => _x;
 
         public override IReactiveProperty<float> Y => _y;
+
         private void OnEnable()
         {
             _attackButtonDown = new ();
@@ -29,7 +29,7 @@ namespace Jam.GameInput
 
         private void Update()
         {
-            _attackButtonDown.Value = Input.GetMouseButtonDown(0);
+            _attackButtonDown.Value = Input.GetMouseButton(0);
 
             _x.Value = Input.GetAxis(_horizontal);
             _y.Value = Input.GetAxis(_vertical);

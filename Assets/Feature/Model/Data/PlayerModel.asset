@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerModel
   m_EditorClassIdentifier: 
   speedMove: 100
-  maxHeath: 10
+  maxHeath: 5
   forceRotate: 3

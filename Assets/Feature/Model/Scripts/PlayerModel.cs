@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Jam.Model
@@ -26,8 +24,16 @@ namespace Jam.Model
         public float SpeedMove => speedMove;
         public float ForceRotate => forceRotate;
 
-        public void IncreaseHealth(float value) => _health.Value += value;
-        public void DecreaseHealth(float value) => _health.Value -= value;
+        public void IncreaseHealth(float value)
+        {
+            if (_health.Value < maxHeath)
+                _health.Value += value;
+        }
 
+        public void DecreaseHealth(float value)
+        {
+            if (_health.Value > 0)
+                _health.Value -= value;
+        }
     }
 }

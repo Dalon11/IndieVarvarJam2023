@@ -1,3 +1,4 @@
+using Jam.Animation.Abstraction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,20 @@ using UnityEngine;
 namespace Jam.Animation
 {
 
-    public class AnimatorProvider : MonoBehaviour
+    public class AnimatorProvider : MonoBehaviour, IShowAttack, IShowMovement
     {
+        private readonly string ParameterAttack = "IsAttack";
+        private readonly string ParameterSpeedX = "SpeedX";
+        private readonly string ParameterSpeedZ = "SpeedZ";
 
         [SerializeField] private Animator animator;
 
-        private void Update()
-        {
-            animator.SetFloat("SpeedX", Input.GetAxis("Horizontal"));
-            animator.SetFloat("SpeedZ", Input.GetAxis("Vertical"));
+        public void ShowAttack(bool value) => animator.SetBool(ParameterAttack, value);
 
-            animator.SetBool("IsAttack", Input.GetKey(KeyCode.Space)); 
+        public void ShowMovement(float speedX, float speedZ)
+        {
+            animator.SetFloat(ParameterSpeedX, speedX);
+            animator.SetFloat(ParameterSpeedZ, speedZ);
         }
     }
 }

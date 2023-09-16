@@ -2,10 +2,10 @@ using Jam.Player.Abstraction;
 using System;
 using UnityEngine;
 
-namespace Jam.Attack
+namespace Jam.Player
 {
     public class Weapon : MonoBehaviour
-    {
+    {        
         public event Action<ITakeDamage> onTriggerEnter = delegate { };
 
         private void OnTriggerEnter(Collider other)
@@ -13,7 +13,10 @@ namespace Jam.Attack
             if (other is ITakeDamage controller)
             {
                 onTriggerEnter.Invoke(controller);
+                Debug.LogError(other.gameObject);
             }
+            Debug.LogError(other.gameObject + " colliziya");
         }
+
     }
 }

@@ -1,4 +1,5 @@
 using Jam.GameInput.Abstraction;
+using Jam.Player;
 using Jam.Player.Abstraction;
 using Jam.Player.Controllers;
 using UniRx;
@@ -9,7 +10,6 @@ namespace Jam.Attack
     public class CharacterAttackController : MonoBehaviour
     {
         [SerializeField] Weapon weapon;
-        [SerializeField] AttackView view;
         [SerializeField] PlayerController playerController;
         [SerializeField] AbstractInput input;
 
@@ -30,7 +30,8 @@ namespace Jam.Attack
 
         public void Attack()
         {
-            view.ShowAttack();
+            //weapon.SetActiveCollider(true);
+           // view.ShowAttack();
         }
 
     }
