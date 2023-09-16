@@ -1,39 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 namespace Jam.Model
 {
     using Abstraction;
     using UniRx;
-    
+
     [CreateAssetMenu(fileName = "Jam", menuName = "PlayerModel")]
-    public class PlayerModel : ScriptableObject, IModel
+    public class PlayerModel : ScriptableObject, IModel, IDecreaseHealth, IIncreaseHealth
     {
-        public IReactiveProperty<float> Health => _health;
+        [SerializeField] private float speedMove;
+        [SerializeField] private float maxHeath;
+        [SerializeField] private float forceRotate = 3f;
 
-        public float SpeedMove => speedMove;
+        private ReactiveProperty<float> _health;
 
-        public float Cooldown => cooldown;
-
-        public float SpeedAttack => speedAttack;
-
-        public float Damage => damage;
-
-        public PlayerModel()
+        private void OnEnable()
         {
             _health = new();
             _health.Value = maxHeath;
         }
 
-        [SerializeField] private float speedMove;
-        [SerializeField] private float cooldown;
-        [SerializeField] private float speedAttack;
-        [SerializeField] private float damage;
-        [SerializeField] private float maxHeath;
+        public IReactiveProperty<float> Health => _health;
+        public float SpeedMove => speedMove;
+        public float ForceRotate => forceRotate;
 
-        private ReactiveProperty<float> _health;
+        public void IncreaseHealth(float value) => _health.Value += value;
+        public void DecreaseHealth(float value) => _health.Value -= value;
 
     }
 }
