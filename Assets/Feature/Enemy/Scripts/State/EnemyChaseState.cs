@@ -19,6 +19,7 @@ namespace Jam.Enemy.StateMachine.State
 
         private float _timeForCheck = 0.2f;
         private float _timerForCheck;
+        private Vector3 directionRotation;
 
         public override void Enter()
         {
@@ -30,6 +31,7 @@ namespace Jam.Enemy.StateMachine.State
 
         public override void Update()
         {
+            Rotation();
             if (_timerForCheck + _timeForCheck < Time.time)
             {
                 _enemy.SetDestination(_player.gameObject.transform.position);
@@ -39,6 +41,12 @@ namespace Jam.Enemy.StateMachine.State
         public override void Exit()
         {
             _enemyView.Run(false);
+        }
+
+        private void Rotation()
+        {
+            directionRotation = _player.transform.position - _enemy.transform.position;
+            _enemy.transform.rotation = Quaternion.Lerp(_enemy.transform.rotation, Quaternion.LookRotation(directionRotation), Time.deltaTime * 50);
         }
 
         #region Init

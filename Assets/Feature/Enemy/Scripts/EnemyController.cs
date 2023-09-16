@@ -59,7 +59,7 @@ namespace Jam.Enemy.StateMachine
             _enemyStates.Add(_idleState);
             _enemyStates.Add(_chaseState);
             _enemyStates.Add(_attackState);
-            for(int i =0; i < _enemyStates.Count; i++)
+            for (int i = 0; i < _enemyStates.Count; i++)
             {
                 Init<PlayerController>(_player, _enemyStates[i]);
                 Init<AbstractEnemyView>(animator, _enemyStates[i]);
@@ -79,13 +79,16 @@ namespace Jam.Enemy.StateMachine
         private void DistanceCalculation()
         {
             directionToPlayer = _player.transform.position - transform.position;
-            if (directionToPlayer.sqrMagnitude < enemyModel.DistanceToChasePlayer * enemyModel.DistanceToChasePlayer)
+            if (directionToPlayer.magnitude < enemyModel.DistanceToChasePlayer)
             {
-                if (directionToPlayer.sqrMagnitude < enemyModel.DistanceToAttackPlayer * enemyModel.DistanceToAttackPlayer
-                    && !(_currentState is EnemyAttackState))
-                    ChangeState(_attackState);
-                else if (directionToPlayer.sqrMagnitude > enemyModel.DistanceToAttackPlayer * enemyModel.DistanceToAttackPlayer
-                    && !(_currentState is EnemyChaseState))
+                if (directionToPlayer.magnitude < enemyModel.DistanceToAttackPlayer)
+                {
+                    if (!(_currentState is EnemyAttackState))
+                        ChangeState(_attackState);
+                    return;
+
+                }
+                else if (!(_currentState is EnemyChaseState))
                     ChangeState(_chaseState);
             }
             else if (!(_currentState is EnemyIdleState))
