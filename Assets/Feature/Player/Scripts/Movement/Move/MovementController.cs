@@ -9,6 +9,7 @@ namespace Jam.Player.Movement
 {
     public class MovementController : IInitializable<AbstractInput>, IInitializable<IStateModel>, IInitializable<IUpdater>, IInitializable<GameObject>, IInitializable<IModel>, IDisposable
     {
+        private Transform _transform;
         private Rigidbody _rigidbody;
         private AbstractInput _input;
         private IUpdater _updator;
@@ -31,6 +32,7 @@ namespace Jam.Player.Movement
 
         public void Init(GameObject model)
         {
+            _transform = model.transform;
             _rigidbody = model.GetComponent<Rigidbody>();
         }
 
@@ -42,9 +44,9 @@ namespace Jam.Player.Movement
         private void Move()
         {
             if (_model == null || _input == null)
-                return; 
+                return;
 
-              _newPosition = _input.X.Value * Vector3.right + _input.Y.Value * Vector3.forward;
+            _newPosition = _input.X.Value * _transform.right + _input.Y.Value * _transform.forward;
             _newPosition = _newPosition.normalized;
 
             _rigidbody.AddForce(_newPosition * _model.SpeedMove, ForceMode.Force);

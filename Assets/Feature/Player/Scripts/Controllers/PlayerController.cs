@@ -18,16 +18,17 @@ namespace Jam.Player.Controllers
         [SerializeField] private HeroView view;
         [SerializeField] private GameObject heroPrefab;
         [SerializeField] private AbstractInput input;
+
         [SerializeField] private PlayerModel model;
         [SerializeField] private StateModel stateModel;
+        [SerializeField] private AttackModel attackModel;
 
-        private List<IInitializable<GameObject>> _initableObjects;
+        private List<IInitializable> _initializableObjects;
         private Updater _updator;
         private PlayerModel _playerModel;
 
-        private void OnEnable()
-        {
-            _updator = new Updater();
+        private void Awake()
+        {           
             Initialization();
         }
 
@@ -39,34 +40,52 @@ namespace Jam.Player.Controllers
         {
             Destroy(_playerModel);
 
-            for (int i = 0; i < _initableObjects.Count; i++)
-                if (_initableObjects[i] is IDisposable disposble)
+            for (int i = 0; i < _initializableObjects.Count; i++)
+                if (_initializableObjects[i] is IDisposable disposble)
                     disposble.Dispose();
         }
 
         private void Initialization()
         {
-            _initableObjects = new List<IInitializable<GameObject>>
+            _updator = new Updater();
+
+            _initializableObjects = new List<IInitializable>
             {
                 new MovementController(),
-                new RotationController()
+                new RotationController(),
+                new CharacterDamageController()
             };
 
             _playerModel = Instantiate(model);
 
-            for (int i = 0; i < _initableObjects.Count; i++)
+            for (int i = 0; i < _initializableObjects.Count; i++)
             {
-                Init<GameObject>(heroPrefab, _initableObjects[i]);
-                Init<AbstractInput>(input, _initableObjects[i]);
-                Init<IUpdater>(_updator, _initableObjects[i]);
-                Init<IModel>(_playerModel, _initableObjects[i]);
+                Init<GameObject>(heroPrefab, _initializableObjects[i]);
+                Init<AbstractInput>(input, _initializableObjects[i]);
+                Init<IUpdater>(_updator, _initializableObjects[i]);
+
+                Init<IModel>(_playerModel, _initializableObjects[i]);
+                Init<IDecreaseHealth>(_playerModel, _initializableObjects[i]);
+
+                Init<IStateModel>(stateModel, _initializableObjects[i]);
+
+                Init<IAttackModel>(attackModel, _initializableObjects[i]);
             }
         }
 
-        private void Init<T>(T data, object initableObject)
+        private void Init<T>(T data, IInitializable initializableObject)
         {
-            if (initableObject is IInitializable<T> initializable)
+            if (initializableObject is IInitializable<T> initializable)
                 initializable.Init(data);
+        }
+
+        public T GetController<T>()
+        {
+            for (int i = 0; i < _initializableObjects.Count; i++)
+                if (_initializableObjects[i] is T controller)
+                    return controller;
+
+            return default;
         }
     }
 }

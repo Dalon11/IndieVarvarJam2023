@@ -1,0 +1,19 @@
+{
+    "name": "Jam.Attack",
+    "rootNamespace": "Jam.Attack",
+    "references": [
+        "GUID:eb3a6ae08fd467e4288556e70768d6d2",
+        "GUID:0001d07812e6df840bde019ddd1e47f6",
+        "GUID:61af648e88e721c449be2ffe9a990340",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
