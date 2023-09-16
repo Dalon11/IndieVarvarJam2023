@@ -11,11 +11,11 @@ namespace Jam.Enemy.StateMachine.State
     using Jam.Enemy.View.Abstaction;
     using Jam.Player.Controllers;
 
-    public class EnemyAttackState : EnemyBaseState, IInitializable, IInitializable<GameObject>,
+    public class EnemyAttackState : EnemyBaseState, IInitializable, IInitializable<PlayerController>,
         IInitializable<AbstractEnemyView>, IInitializable<IEnemyModel>, IInitializable<IAttackEnemyModel>
     {
         private AbstractEnemyView _animator;
-        private GameObject _player;
+        private PlayerController _player;
         private IEnemyModel _model;
         private IAttackEnemyModel _attackModel;
         private ITakeDamage _takeDamage;
@@ -49,7 +49,7 @@ namespace Jam.Enemy.StateMachine.State
         }
 
         #region Init
-        public void Init(GameObject model)
+        public void Init(PlayerController model)
         {
             _player = model;
             

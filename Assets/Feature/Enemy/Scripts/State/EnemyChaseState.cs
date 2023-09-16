@@ -7,13 +7,14 @@ namespace Jam.Enemy.StateMachine.State
     using Jam.Enemy.Model.Abstraction;
     using Jam.Enemy.View.Abstaction;
     using Jam.Fabric.Initable.Abstraction;
+    using Jam.Player.Controllers;
 
-    public class EnemyChaseState : EnemyBaseState, IInitializable, IInitializable<GameObject>, IInitializable<NavMeshAgent>,
+    public class EnemyChaseState : EnemyBaseState, IInitializable, IInitializable<PlayerController>, IInitializable<NavMeshAgent>,
         IInitializable<AbstractEnemyView>, IInitializable<IEnemyModel>
     {
         private NavMeshAgent _enemy;
         private AbstractEnemyView _enemyView;
-        private GameObject _player;
+        private PlayerController _player;
         private IEnemyModel _model;
 
         private float _timeForCheck = 0.2f;
@@ -31,7 +32,7 @@ namespace Jam.Enemy.StateMachine.State
         {
             if (_timerForCheck + _timeForCheck < Time.time)
             {
-                _enemy.SetDestination(_player.transform.position);
+                _enemy.SetDestination(_player.gameObject.transform.position);
             }
         }
 
@@ -41,7 +42,7 @@ namespace Jam.Enemy.StateMachine.State
         }
 
         #region Init
-        public void Init(GameObject model)
+        public void Init(PlayerController model)
         {
             _player = model;
         }

@@ -8,6 +8,7 @@ using Jam.Enemy.View;
 using Jam.Enemy.View.Abstaction;
 using Jam.Fabric.Initable.Abstraction;
 using Jam.Player.Abstraction;
+using Jam.Player.Controllers;
 
 namespace Jam.Enemy.StateMachine
 {
@@ -15,7 +16,7 @@ namespace Jam.Enemy.StateMachine
     using State.Abstraction;
     public class EnemyController : MonoBehaviour, ITakeDamage
     {
-        [SerializeField] private GameObject _player; /// Поиск надо поменять.
+        [SerializeField] private PlayerController _player; /// Поиск надо поменять.
         [SerializeField] private EnemyModel enemyModel;
         [SerializeField] private AttackEnemyModel attackModel;
         [SerializeField] private NavMeshAgent agent;
@@ -60,7 +61,7 @@ namespace Jam.Enemy.StateMachine
             _enemyStates.Add(_attackState);
             for(int i =0; i < _enemyStates.Count; i++)
             {
-                Init<GameObject>(_player, _enemyStates[i]);
+                Init<PlayerController>(_player, _enemyStates[i]);
                 Init<AbstractEnemyView>(animator, _enemyStates[i]);
                 Init<NavMeshAgent>(agent, _enemyStates[i]);
                 Init<IEnemyModel>(_enemyModel, _enemyStates[i]);
