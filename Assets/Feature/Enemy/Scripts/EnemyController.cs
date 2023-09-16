@@ -109,6 +109,11 @@ namespace Jam.Enemy.StateMachine
         public void TakeDamage(float damage)
         {
             _enemyModel.Health.Value -= damage;
+            animator.TakeDamage();
+            _currentState = _idleState;
+
+            if (_enemyModel.Health.Value <= 0)
+                Destroy(gameObject);
         }
     }
 }

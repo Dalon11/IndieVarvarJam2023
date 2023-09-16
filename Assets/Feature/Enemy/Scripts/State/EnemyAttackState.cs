@@ -28,7 +28,6 @@ namespace Jam.Enemy.StateMachine.State
         public override void Enter()
         {
             _enemy.ResetPath();
-            Attack();
             StartPosition = _enemy.transform.position;
         }
 
