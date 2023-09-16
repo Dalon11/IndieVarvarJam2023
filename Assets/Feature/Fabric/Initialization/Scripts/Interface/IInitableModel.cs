@@ -4,6 +4,6 @@ using Jam.Model;
 namespace Jam.Fabric.Initable
 {
     using Abstraction;
-    public interface IInitableModel : IInitable<PlayerModel>  { }
+    public interface IInitableModel : IInitializable<PlayerModel>  { }
 }
 
