@@ -1,3 +1,20 @@
 {
-	"name": "Jam.Enemy"
+    "name": "Jam.Enemy",
+    "rootNamespace": "",
+    "references": [
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:1664e92176d434ccd902c1705fefe682",
+        "GUID:eb3a6ae08fd467e4288556e70768d6d2",
+        "GUID:5055dfa6cbdc8034386586ed4ae174f2",
+        "GUID:61af648e88e721c449be2ffe9a990340"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

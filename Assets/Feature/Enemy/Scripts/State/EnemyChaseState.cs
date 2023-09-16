@@ -4,12 +4,17 @@ using UnityEngine.AI;
 namespace Jam.Enemy.StateMachine.State
 {
     using Abstraction;
+    using Jam.Enemy.Model.Abstraction;
+    using Jam.Enemy.View.Abstaction;
+    using Jam.Fabric.Initable.Abstraction;
 
-    public class EnemyChaseState : EnemyBaseState
+    public class EnemyChaseState : EnemyBaseState, IInitializable, IInitializable<GameObject>, IInitializable<NavMeshAgent>,
+        IInitializable<AbstractEnemyView>, IInitializable<IEnemyModel>
     {
         private NavMeshAgent _enemy;
-        private Animator _animator;
+        private AbstractEnemyView _enemyView;
         private GameObject _player;
+        private IEnemyModel _model;
 
         private float _timeForCheck = 0.2f;
         private float _timerForCheck;
@@ -17,7 +22,8 @@ namespace Jam.Enemy.StateMachine.State
         public override void Enter()
         {
             _timerForCheck = Time.time;
-            _animator.SetBool("Run", true);
+            _enemy.speed = _model.SpeedRun;
+            _enemyView.Run(true);
             _enemy.SetDestination(_player.transform.position);
         }
 
@@ -31,14 +37,29 @@ namespace Jam.Enemy.StateMachine.State
 
         public override void Exit()
         {
-            _animator.SetBool("Run", false);
+            _enemyView.Run(false);
         }
 
-        public override void Init(NavMeshAgent enemy, GameObject player, Animator animator)
+        #region Init
+        public void Init(GameObject model)
         {
-            _enemy = enemy;
-            _player = player;
-            _animator = animator;
+            _player = model;
         }
+
+        public void Init(NavMeshAgent model)
+        {
+            _enemy = model;
+        }
+
+        public void Init(AbstractEnemyView model)
+        {
+            _enemyView = model;
+        }
+
+        public void Init(IEnemyModel model)
+        {
+            _model = model;
+        }
+        #endregion
     }
 }

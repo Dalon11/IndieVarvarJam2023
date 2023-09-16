@@ -1,14 +1,19 @@
 using UnityEngine;
+using Jam.Enemy.Model.Abstraction;
+using Jam.Enemy.View.Abstaction;
+using Jam.Fabric.Initable.Abstraction;
+using UnityEngine.AI;
 
 namespace Jam.Enemy.StateMachine.State
 {
     using Abstraction;
-    using UnityEngine.AI;
 
-    public class EnemyIdleState : EnemyBaseState
+    public class EnemyIdleState : EnemyBaseState, IInitializable, IInitializable<NavMeshAgent>,
+        IInitializable<AbstractEnemyView>, IInitializable<IEnemyModel>
     {
         private NavMeshAgent _enemy;
-        private Animator _animator;
+        private AbstractEnemyView _enemyView;
+        private IEnemyModel _model;
 
         private float _timeForWalk = 7.0f;
         private float _timerForWalk;
@@ -20,6 +25,7 @@ namespace Jam.Enemy.StateMachine.State
 
         public override void Enter()
         {
+            _enemy.speed = _model.SpeedWalk;
             _timerForWalk = Time.time;
         }
 
@@ -30,23 +36,17 @@ namespace Jam.Enemy.StateMachine.State
                 Walk();
             }
             else if (!_enemy.hasPath)
-                _animator.SetBool("WalkIdle", false);
+                _enemyView.Walk(false);
         }
 
         public override void Exit()
         {
-            _animator.SetBool("WalkIdle", false);
-        }
-
-        public override void Init(NavMeshAgent enemy, GameObject player, Animator animator)
-        {
-            _enemy = enemy;
-            _animator = animator;
+            _enemyView.Walk(false);
         }
 
         private void Walk()
         {
-            _animator.SetBool("WalkIdle", true);
+            _enemyView.Walk(true);
             _timerForWalk = Time.time;
 
             _newPosition = _enemy.gameObject.transform.position + Random.Range(_minDistanceWalk, _maxDistanceWalk) * Vector3.right
@@ -54,5 +54,22 @@ namespace Jam.Enemy.StateMachine.State
 
             _enemy.SetDestination(_newPosition);   
         }
+
+        #region Init
+        public void Init(NavMeshAgent model)
+        {
+            _enemy = model;
+        }
+
+        public void Init(AbstractEnemyView model)
+        {
+            _enemyView = model;
+        }
+
+        public void Init(IEnemyModel model)
+        {
+            _model = model;
+        }
+        #endregion
     }
 }

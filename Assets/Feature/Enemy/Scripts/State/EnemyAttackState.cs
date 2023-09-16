@@ -1,40 +1,75 @@
-using UnityEngine.AI;
 using UnityEngine;
+using Jam.Enemy.Model.Abstraction;
+using Jam.Enemy.View.Abstaction;
+using Jam.Fabric.Initable.Abstraction;
+using UnityEngine.AI;
+using Jam.Player.Abstraction;
 
 namespace Jam.Enemy.StateMachine.State
 {
     using Abstraction;
-    
+    using Jam.Enemy.View.Abstaction;
+    using Jam.Player.Controllers;
 
-    public class EnemyAttackState : EnemyBaseState
+    public class EnemyAttackState : EnemyBaseState, IInitializable, IInitializable<GameObject>,
+        IInitializable<AbstractEnemyView>, IInitializable<IEnemyModel>, IInitializable<IAttackEnemyModel>
     {
-        private NavMeshAgent _enemy;
-        private Animator _animator;
+        private AbstractEnemyView _animator;
         private GameObject _player;
+        private IEnemyModel _model;
+        private IAttackEnemyModel _attackModel;
+        private ITakeDamage _takeDamage;
 
-        private float _timeForAttack = 7.0f;
+        private float _timeForAttack = 2.0f;
         private float _timerForAttack;
 
         public override void Enter()
         {
-            Debug.Log("Начало атаки");
+            _timerForAttack = Time.time;
         }
 
         public override void Update()
         {
-            Debug.Log("атака");
+            if (_timerForAttack + _timeForAttack < Time.time)
+            {
+                Attack();
+            }
         }
 
         public override void Exit()
         {
             Debug.Log("Конец атаки");
         }
-
-        public override void Init(NavMeshAgent enemy, GameObject player, Animator animator)
+        
+        private void Attack()
         {
-            _enemy = enemy;
-            _player = player;
-            _animator = animator;
+            _animator.Attack();
+            _timerForAttack = Time.time;
+            _takeDamage.TakeDamage(_attackModel.Damage);
         }
+
+        #region Init
+        public void Init(GameObject model)
+        {
+            _player = model;
+            
+            _takeDamage = _player.GetComponent<PlayerController>().GetController<ITakeDamage>();
+        }
+
+        public void Init(IAttackEnemyModel model)
+        {
+            _attackModel = model;
+        }
+
+        public void Init(IEnemyModel model)
+        {
+            _model = model;
+        }
+
+        public void Init(AbstractEnemyView model)
+        {
+            _animator = model;
+        }
+        #endregion
     }
 }
