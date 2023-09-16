@@ -18,6 +18,7 @@ namespace Jam.Player.Movement
         public void Init(GameObject model)
         {
             _transform = model.transform;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void Init(IUpdater model)
@@ -40,6 +41,7 @@ namespace Jam.Player.Movement
         public void Dispose()
         {
             _updator.onUpdate -= Rotating;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }
