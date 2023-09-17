@@ -37,7 +37,7 @@ namespace Jam.Player.Controllers
             stateModel.IsDeath.Value = false;
             stateModel.IsDeath.Subscribe(x =>
             {
-                Debug.LogError($"isdeat + {x}");
+             //   Debug.LogError($"isdeat + {x}");
             }).AddTo(this);
         }
 
