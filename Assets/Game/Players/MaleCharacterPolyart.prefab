@@ -145,7 +145,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -1350,8 +1350,8 @@ MonoBehaviour:
   model: {fileID: 11400000, guid: 34d8073a2b2f63d4dbbc695ab31d3dff, type: 2}
   stateModel: {fileID: 11400000, guid: 5b0bce9163c529e4a87e37798aebd513, type: 2}
   attackModel: {fileID: 11400000, guid: 025585bfb6da1b148b4e6c6a3463b187, type: 2}
-  weapon: {fileID: 0}
-  animatorProvider: {fileID: 0}
+  weapon: {fileID: 5545340251744558240}
+  animatorProvider: {fileID: 2211507207254942875}
 --- !u!114 &4406169183437839668
 MonoBehaviour:
   m_ObjectHideFlags: 0

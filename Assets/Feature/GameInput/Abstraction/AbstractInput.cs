@@ -7,10 +7,10 @@ namespace Jam.GameInput.Abstraction
 {
     public abstract class AbstractInput : MonoBehaviour
     {
-        public abstract IReactiveProperty<bool> AttackButtonDown { get; }
+        public abstract IReadOnlyReactiveProperty<bool> AttackButton { get; }
 
-        public abstract IReactiveProperty<float> X { get; }
-        public abstract IReactiveProperty<float> Y { get; }
+        public abstract IReadOnlyReactiveProperty<float> X { get; }
+        public abstract IReadOnlyReactiveProperty<float> Y { get; }
 
     }
 }

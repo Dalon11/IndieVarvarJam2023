@@ -29,7 +29,7 @@ namespace Jam.Player.Controllers
         public void Init(AbstractInput model)
         {
             _input = model;
-            _disposable = _input.AttackButtonDown.Subscribe(Attack);
+            _disposable = _input.AttackButton.Subscribe(Attack);
         }
 
         public void Attack(bool value) => _view?.ShowAttack(value);

@@ -17,7 +17,7 @@ namespace Jam.Attack
 
         private void Start()
         {
-            input.AttackButtonDown.Where(x => x).Subscribe(_ => Attack()).AddTo(this);
+            input.AttackButton.Where(x => x).Subscribe(_ => Attack()).AddTo(this);
 
             damageController = playerController.GetController<IMakeDamage>();
             weapon.onTriggerEnter += damageController.MakeDamage;

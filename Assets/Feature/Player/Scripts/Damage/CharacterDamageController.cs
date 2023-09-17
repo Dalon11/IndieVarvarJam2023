@@ -34,6 +34,7 @@ namespace Jam.Player
             enemy.TakeDamage(_attackModel.Damage);
             onMakeDamage.Invoke();
         }
+
         private void Death()
         {
             if (_healModel.Health.Value <= 0)

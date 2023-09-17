@@ -1,8 +1,9 @@
 {
-    "name": "Jam.UI.GameUI",
-    "rootNamespace": "Jam.UI.GameUI",
+    "name": "Jam.HealthTime",
+    "rootNamespace": "Jam.HealthTime",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:87a8bba32a6f0c4439ee3434193cfb12",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
