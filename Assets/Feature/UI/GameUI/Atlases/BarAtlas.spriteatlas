@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BarAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d328ea7b27e29a743af52c7936f8a3c9, type: 3}
+    - {fileID: 2800000, guid: d8521f1c0a44ef545a5087ffe14b75c2, type: 3}
+    - {fileID: 2800000, guid: 0cd6bfc6a54ccb04585721c13a267ec9, type: 3}
+    - {fileID: 2800000, guid: 41f6e0bc8b29e5e478b59b4840d69642, type: 3}
+    - {fileID: 2800000, guid: a55b77738e51a7c45b533d1ee561e787, type: 3}
+    - {fileID: 2800000, guid: 735b665ee6d6bf04bb48f27b5962e035, type: 3}
+    - {fileID: 2800000, guid: 4445f7b94ace81d4eb03119108264021, type: 3}
+    - {fileID: 2800000, guid: f4139e61014bee145a5d7484d3c185fe, type: 3}
+    - {fileID: 2800000, guid: adeed121e01b314478ecb0a2942cb7d5, type: 3}
+    - {fileID: 2800000, guid: 9f3b31993be17354b9ec594257f35728, type: 3}
+    - {fileID: 2800000, guid: 36bac57739320c2448fc04b19f224555, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - adeed121e01b314478ecb0a2942cb7d5: 21300000
+    - f4139e61014bee145a5d7484d3c185fe: 21300000
+    - a55b77738e51a7c45b533d1ee561e787: 21300000
+    - 0cd6bfc6a54ccb04585721c13a267ec9: 21300000
+    - 36bac57739320c2448fc04b19f224555: 21300000
+    - 9f3b31993be17354b9ec594257f35728: 21300000
+    - 4445f7b94ace81d4eb03119108264021: 21300000
+    - d328ea7b27e29a743af52c7936f8a3c9: 21300000
+    - d8521f1c0a44ef545a5087ffe14b75c2: 21300000
+    - 41f6e0bc8b29e5e478b59b4840d69642: 21300000
+    - 735b665ee6d6bf04bb48f27b5962e035: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: adeed121e01b314478ecb0a2942cb7d5, type: 3}
+  - {fileID: 21300000, guid: f4139e61014bee145a5d7484d3c185fe, type: 3}
+  - {fileID: 21300000, guid: a55b77738e51a7c45b533d1ee561e787, type: 3}
+  - {fileID: 21300000, guid: 0cd6bfc6a54ccb04585721c13a267ec9, type: 3}
+  - {fileID: 21300000, guid: 36bac57739320c2448fc04b19f224555, type: 3}
+  - {fileID: 21300000, guid: 9f3b31993be17354b9ec594257f35728, type: 3}
+  - {fileID: 21300000, guid: 4445f7b94ace81d4eb03119108264021, type: 3}
+  - {fileID: 21300000, guid: d328ea7b27e29a743af52c7936f8a3c9, type: 3}
+  - {fileID: 21300000, guid: d8521f1c0a44ef545a5087ffe14b75c2, type: 3}
+  - {fileID: 21300000, guid: 41f6e0bc8b29e5e478b59b4840d69642, type: 3}
+  - {fileID: 21300000, guid: 735b665ee6d6bf04bb48f27b5962e035, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - 4_hit_on
+  - 4_hit_off
+  - 2_hit_on
+  - 1_hit_on
+  - menu
+  - 4_purple_glow
+  - 3_hit_on
+  - 1-3_green_glow
+  - 1_hit_off
+  - 2_hit_off
+  - 3_hit_off
+  m_RenderDataMap: {}
+  m_Tag: BarAtlas
+  m_IsVariant: 0

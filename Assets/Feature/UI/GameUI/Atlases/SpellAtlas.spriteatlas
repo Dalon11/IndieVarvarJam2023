@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpellAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: f6a4afa8b31fb6e4493086fe39f1ea06, type: 3}
+    - {fileID: 2800000, guid: c0dd22860e1c6884dbb85a82d497dadb, type: 3}
+    - {fileID: 2800000, guid: 52c746c264f898541948009fc27283e7, type: 3}
+    - {fileID: 2800000, guid: ca4f6e2d598bfca4db314a0c1f28fa2f, type: 3}
+    - {fileID: 2800000, guid: 1c9678f2579dce945b590bc71f44375c, type: 3}
+    - {fileID: 2800000, guid: d52dc4de70109df409b9f779feef8313, type: 3}
+    - {fileID: 2800000, guid: 34bcb6356f2636840a1655f1bbf5ead8, type: 3}
+    - {fileID: 2800000, guid: 1d6f27df5bd23ef408128cf54da60fb2, type: 3}
+    - {fileID: 2800000, guid: a3b19193bc11bb74e91ed14e21d01bf4, type: 3}
+    - {fileID: 2800000, guid: f86d03c81ce77654289b8a275995d951, type: 3}
+    - {fileID: 2800000, guid: 29922a47d36a43e4e809b73a68a9b5c2, type: 3}
+    - {fileID: 2800000, guid: 7a5f0a039f7be034fa669eb835ee8887, type: 3}
+    - {fileID: 2800000, guid: de8d4a31e306c314ea62635c660ff15c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - de8d4a31e306c314ea62635c660ff15c: 21300000
+    - 52c746c264f898541948009fc27283e7: 21300000
+    - 1c9678f2579dce945b590bc71f44375c: 21300000
+    - 7a5f0a039f7be034fa669eb835ee8887: 21300000
+    - a3b19193bc11bb74e91ed14e21d01bf4: 21300000
+    - 34bcb6356f2636840a1655f1bbf5ead8: 21300000
+    - c0dd22860e1c6884dbb85a82d497dadb: 21300000
+    - 29922a47d36a43e4e809b73a68a9b5c2: 21300000
+    - f6a4afa8b31fb6e4493086fe39f1ea06: 21300000
+    - f86d03c81ce77654289b8a275995d951: 21300000
+    - ca4f6e2d598bfca4db314a0c1f28fa2f: 21300000
+    - d52dc4de70109df409b9f779feef8313: 21300000
+    - 1d6f27df5bd23ef408128cf54da60fb2: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: de8d4a31e306c314ea62635c660ff15c, type: 3}
+  - {fileID: 21300000, guid: 52c746c264f898541948009fc27283e7, type: 3}
+  - {fileID: 21300000, guid: 1c9678f2579dce945b590bc71f44375c, type: 3}
+  - {fileID: 21300000, guid: 7a5f0a039f7be034fa669eb835ee8887, type: 3}
+  - {fileID: 21300000, guid: a3b19193bc11bb74e91ed14e21d01bf4, type: 3}
+  - {fileID: 21300000, guid: 34bcb6356f2636840a1655f1bbf5ead8, type: 3}
+  - {fileID: 21300000, guid: c0dd22860e1c6884dbb85a82d497dadb, type: 3}
+  - {fileID: 21300000, guid: 29922a47d36a43e4e809b73a68a9b5c2, type: 3}
+  - {fileID: 21300000, guid: f6a4afa8b31fb6e4493086fe39f1ea06, type: 3}
+  - {fileID: 21300000, guid: f86d03c81ce77654289b8a275995d951, type: 3}
+  - {fileID: 21300000, guid: ca4f6e2d598bfca4db314a0c1f28fa2f, type: 3}
+  - {fileID: 21300000, guid: d52dc4de70109df409b9f779feef8313, type: 3}
+  - {fileID: 21300000, guid: 1d6f27df5bd23ef408128cf54da60fb2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - lvl_off
+  - boy
+  - curse1
+  - hp_on
+  - curse_red_glow
+  - curse_off
+  - avatar
+  - hp_off
+  - lvl_on
+  - girl
+  - curse
+  - curse2_glow
+  - curse_on
+  m_RenderDataMap: {}
+  m_Tag: SpellAtlas
+  m_IsVariant: 0
