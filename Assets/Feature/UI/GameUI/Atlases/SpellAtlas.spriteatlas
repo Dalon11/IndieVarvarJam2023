@@ -40,70 +40,62 @@ SpriteAtlas:
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 0
-      enableTightPacking: 1
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: f6a4afa8b31fb6e4493086fe39f1ea06, type: 3}
-    - {fileID: 2800000, guid: c0dd22860e1c6884dbb85a82d497dadb, type: 3}
-    - {fileID: 2800000, guid: 52c746c264f898541948009fc27283e7, type: 3}
-    - {fileID: 2800000, guid: ca4f6e2d598bfca4db314a0c1f28fa2f, type: 3}
-    - {fileID: 2800000, guid: 1c9678f2579dce945b590bc71f44375c, type: 3}
-    - {fileID: 2800000, guid: d52dc4de70109df409b9f779feef8313, type: 3}
-    - {fileID: 2800000, guid: 34bcb6356f2636840a1655f1bbf5ead8, type: 3}
-    - {fileID: 2800000, guid: 1d6f27df5bd23ef408128cf54da60fb2, type: 3}
-    - {fileID: 2800000, guid: a3b19193bc11bb74e91ed14e21d01bf4, type: 3}
-    - {fileID: 2800000, guid: f86d03c81ce77654289b8a275995d951, type: 3}
-    - {fileID: 2800000, guid: 29922a47d36a43e4e809b73a68a9b5c2, type: 3}
-    - {fileID: 2800000, guid: 7a5f0a039f7be034fa669eb835ee8887, type: 3}
-    - {fileID: 2800000, guid: de8d4a31e306c314ea62635c660ff15c, type: 3}
+    - {fileID: 2800000, guid: d328ea7b27e29a743af52c7936f8a3c9, type: 3}
+    - {fileID: 2800000, guid: d8521f1c0a44ef545a5087ffe14b75c2, type: 3}
+    - {fileID: 2800000, guid: 0cd6bfc6a54ccb04585721c13a267ec9, type: 3}
+    - {fileID: 2800000, guid: 41f6e0bc8b29e5e478b59b4840d69642, type: 3}
+    - {fileID: 2800000, guid: a55b77738e51a7c45b533d1ee561e787, type: 3}
+    - {fileID: 2800000, guid: 735b665ee6d6bf04bb48f27b5962e035, type: 3}
+    - {fileID: 2800000, guid: 4445f7b94ace81d4eb03119108264021, type: 3}
+    - {fileID: 2800000, guid: f4139e61014bee145a5d7484d3c185fe, type: 3}
+    - {fileID: 2800000, guid: adeed121e01b314478ecb0a2942cb7d5, type: 3}
+    - {fileID: 2800000, guid: 9f3b31993be17354b9ec594257f35728, type: 3}
+    - {fileID: 2800000, guid: 36bac57739320c2448fc04b19f224555, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
-    - de8d4a31e306c314ea62635c660ff15c: 21300000
-    - 52c746c264f898541948009fc27283e7: 21300000
-    - 1c9678f2579dce945b590bc71f44375c: 21300000
-    - 7a5f0a039f7be034fa669eb835ee8887: 21300000
-    - a3b19193bc11bb74e91ed14e21d01bf4: 21300000
-    - 34bcb6356f2636840a1655f1bbf5ead8: 21300000
-    - c0dd22860e1c6884dbb85a82d497dadb: 21300000
-    - 29922a47d36a43e4e809b73a68a9b5c2: 21300000
-    - f6a4afa8b31fb6e4493086fe39f1ea06: 21300000
-    - f86d03c81ce77654289b8a275995d951: 21300000
-    - ca4f6e2d598bfca4db314a0c1f28fa2f: 21300000
-    - d52dc4de70109df409b9f779feef8313: 21300000
-    - 1d6f27df5bd23ef408128cf54da60fb2: 21300000
+    - adeed121e01b314478ecb0a2942cb7d5: 21300000
+    - f4139e61014bee145a5d7484d3c185fe: 21300000
+    - a55b77738e51a7c45b533d1ee561e787: 21300000
+    - 0cd6bfc6a54ccb04585721c13a267ec9: 21300000
+    - 36bac57739320c2448fc04b19f224555: 21300000
+    - 9f3b31993be17354b9ec594257f35728: 21300000
+    - 4445f7b94ace81d4eb03119108264021: 21300000
+    - d328ea7b27e29a743af52c7936f8a3c9: 21300000
+    - d8521f1c0a44ef545a5087ffe14b75c2: 21300000
+    - 41f6e0bc8b29e5e478b59b4840d69642: 21300000
+    - 735b665ee6d6bf04bb48f27b5962e035: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: de8d4a31e306c314ea62635c660ff15c, type: 3}
-  - {fileID: 21300000, guid: 52c746c264f898541948009fc27283e7, type: 3}
-  - {fileID: 21300000, guid: 1c9678f2579dce945b590bc71f44375c, type: 3}
-  - {fileID: 21300000, guid: 7a5f0a039f7be034fa669eb835ee8887, type: 3}
-  - {fileID: 21300000, guid: a3b19193bc11bb74e91ed14e21d01bf4, type: 3}
-  - {fileID: 21300000, guid: 34bcb6356f2636840a1655f1bbf5ead8, type: 3}
-  - {fileID: 21300000, guid: c0dd22860e1c6884dbb85a82d497dadb, type: 3}
-  - {fileID: 21300000, guid: 29922a47d36a43e4e809b73a68a9b5c2, type: 3}
-  - {fileID: 21300000, guid: f6a4afa8b31fb6e4493086fe39f1ea06, type: 3}
-  - {fileID: 21300000, guid: f86d03c81ce77654289b8a275995d951, type: 3}
-  - {fileID: 21300000, guid: ca4f6e2d598bfca4db314a0c1f28fa2f, type: 3}
-  - {fileID: 21300000, guid: d52dc4de70109df409b9f779feef8313, type: 3}
-  - {fileID: 21300000, guid: 1d6f27df5bd23ef408128cf54da60fb2, type: 3}
+  - {fileID: 21300000, guid: adeed121e01b314478ecb0a2942cb7d5, type: 3}
+  - {fileID: 21300000, guid: f4139e61014bee145a5d7484d3c185fe, type: 3}
+  - {fileID: 21300000, guid: a55b77738e51a7c45b533d1ee561e787, type: 3}
+  - {fileID: 21300000, guid: 0cd6bfc6a54ccb04585721c13a267ec9, type: 3}
+  - {fileID: 21300000, guid: 36bac57739320c2448fc04b19f224555, type: 3}
+  - {fileID: 21300000, guid: 9f3b31993be17354b9ec594257f35728, type: 3}
+  - {fileID: 21300000, guid: 4445f7b94ace81d4eb03119108264021, type: 3}
+  - {fileID: 21300000, guid: d328ea7b27e29a743af52c7936f8a3c9, type: 3}
+  - {fileID: 21300000, guid: d8521f1c0a44ef545a5087ffe14b75c2, type: 3}
+  - {fileID: 21300000, guid: 41f6e0bc8b29e5e478b59b4840d69642, type: 3}
+  - {fileID: 21300000, guid: 735b665ee6d6bf04bb48f27b5962e035, type: 3}
   m_PackedSpriteNamesToIndex:
-  - lvl_off
-  - boy
-  - curse1
-  - hp_on
-  - curse_red_glow
-  - curse_off
-  - avatar
-  - hp_off
-  - lvl_on
-  - girl
-  - curse
-  - curse2_glow
-  - curse_on
+  - 4_hit_on
+  - 4_hit_off
+  - 2_hit_on
+  - 1_hit_on
+  - menu
+  - 4_purple_glow
+  - 3_hit_on
+  - 1-3_green_glow
+  - 1_hit_off
+  - 2_hit_off
+  - 3_hit_off
   m_RenderDataMap: {}
   m_Tag: SpellAtlas
   m_IsVariant: 0
