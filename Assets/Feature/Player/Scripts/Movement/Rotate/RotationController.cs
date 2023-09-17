@@ -20,7 +20,7 @@ namespace Jam.Player.Movement
         {
             _transform = model.transform;
 
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void Init(IStateModel model) => _stateModel = model;
@@ -35,8 +35,8 @@ namespace Jam.Player.Movement
 
         private void Rotating()
         {
-            //if (!_stateModel.CanWalk ||  _stateModel.IsDeath)
-            //    return;
+            if (!_stateModel.CanWalk || _stateModel.IsDeath.Value)
+                return;
 
             _valueRotate += Input.GetAxis(_mouseX);
 
@@ -47,7 +47,7 @@ namespace Jam.Player.Movement
         {
             _updator.onUpdate -= Rotating;
 
-          //  Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

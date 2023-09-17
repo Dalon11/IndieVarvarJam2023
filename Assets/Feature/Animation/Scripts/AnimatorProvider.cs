@@ -11,6 +11,7 @@ namespace Jam.Animation
         private readonly string ParameterAttack = "IsAttack";
         private readonly string ParameterSpeedX = "SpeedX";
         private readonly string ParameterSpeedZ = "SpeedZ";
+        private readonly string ParameterDeath = "Death";
 
         [SerializeField] private Animator animator;
 
@@ -20,6 +21,11 @@ namespace Jam.Animation
         {
             animator.SetFloat(ParameterSpeedX, speedX);
             animator.SetFloat(ParameterSpeedZ, speedZ);
+        }
+
+        public void ShowDeath(bool value)
+        {
+            animator.SetBool(ParameterDeath, value);
         }
     }
 }

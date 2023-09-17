@@ -83,6 +83,7 @@ namespace Jam.Player.Controllers
 
                 Init<IStateModel>(stateModel, _initializableObjects[i]);
 
+                
                 Init<IAttackModel>(attackModel, _initializableObjects[i]);
             }
         }

@@ -48,8 +48,8 @@ namespace Jam.Player.Movement
             if (_model == null || _input == null || _stateModel == null)
                 return;
 
-            //if (!_stateModel.CanWalk ||  _stateModel.IsDeath)
-            //    return;
+            if (!_stateModel.CanWalk || _stateModel.IsDeath.Value)
+                return;
 
             _newPosition = _input.X.Value * _transform.right + _input.Y.Value * _transform.forward;
             _newPosition = _newPosition.normalized;

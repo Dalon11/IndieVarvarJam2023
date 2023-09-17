@@ -20,7 +20,7 @@ namespace Jam.Model
             _health.Value = maxHeath;
         }
 
-        public IReactiveProperty<float> Health => _health;
+        public IReadOnlyReactiveProperty<float> Health => _health;
         public float SpeedMove => speedMove;
         public float ForceRotate => forceRotate;
 

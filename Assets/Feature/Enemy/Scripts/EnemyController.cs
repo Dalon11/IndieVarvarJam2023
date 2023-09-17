@@ -108,7 +108,7 @@ namespace Jam.Enemy.StateMachine
 
         public void TakeDamage(float damage)
         {
-            _enemyModel.Health.Value -= damage;
+            _enemyModel.DecreaseHealth(damage);
         }
     }
 }

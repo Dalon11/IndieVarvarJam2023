@@ -18,7 +18,7 @@ namespace Jam.Enemy.Model
 
         private ReactiveProperty<float> _health;
 
-        public IReactiveProperty<float> Health => _health;
+        public IReadOnlyReactiveProperty<float> Health => _health;
 
         public float DistanceToAttackPlayer => distanceToAttackPlayer;
 

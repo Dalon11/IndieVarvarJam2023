@@ -7,7 +7,7 @@ namespace Jam.Model
 {
     public interface IDecreaseHealth
     {
-        public IReactiveProperty<float> Health { get; }
+        public IReadOnlyReactiveProperty<float> Health { get; }
         public void DecreaseHealth(float value);
 
     }

@@ -13,9 +13,7 @@ namespace Jam.Player
             if (other is ITakeDamage controller)
             {
                 onTriggerEnter.Invoke(controller);
-                Debug.LogError(other.gameObject);
             }
-            Debug.LogError(other.gameObject + " colliziya");
         }
 
     }

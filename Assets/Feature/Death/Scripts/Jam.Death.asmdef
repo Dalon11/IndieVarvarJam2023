@@ -1,0 +1,19 @@
+{
+    "name": "Jam.Death",
+    "rootNamespace": "Jam.Death",
+    "references": [
+        "GUID:67a4bbb2220261146b080c427666def7",
+        "GUID:eb3a6ae08fd467e4288556e70768d6d2",
+        "GUID:99ec99936a51323408840045d379abc8",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
