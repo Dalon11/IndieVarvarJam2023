@@ -4,6 +4,7 @@ using Jam.HealthTime;
 using Jam.Animation;
 using Jam.Model;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace Jam.Death
 {
@@ -30,8 +31,14 @@ namespace Jam.Death
         {
             stateModel.IsDeath.Value = true;
             animatorProvider.ShowDeath(stateModel.IsDeath.Value);
+            StartCoroutine(ShowView());
+        }
+        private IEnumerator ShowView()
+        {
+            yield return new WaitForSeconds(1.8f);
             imageDeath.sprite = spriteDeath;
             imageDeath.gameObject.SetActive(true);
+            
 
         }
 
