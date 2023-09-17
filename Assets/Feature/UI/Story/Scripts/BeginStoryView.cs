@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,24 +8,28 @@ namespace Jam.UI.Story
 {
     public class BeginStoryView : MonoBehaviour, IPointerClickHandler
     {
+        [SerializeField] private SceneAsset nextScene;
         [SerializeField] private Image image;
         [SerializeField] private Sprite[] spriteStories;
-        [SerializeField] private int idNextScene = 1;
 
         private int idStory = 0;
+
+        public void SkipStory() => LoadNextScene();
+
+        public void OnPointerClick(PointerEventData eventData) => NextStory();
 
         private void NextStory()
         {
             idStory++;
             if (idStory >= spriteStories.Length)
             {
-                SceneManager.LoadScene(idNextScene);
+                LoadNextScene();
                 return;
             }
 
             image.sprite = spriteStories[idStory];
         }
 
-        public void OnPointerClick(PointerEventData eventData) => NextStory();
+        private void LoadNextScene() => SceneManager.LoadScene(nextScene.name);
     }
 }
