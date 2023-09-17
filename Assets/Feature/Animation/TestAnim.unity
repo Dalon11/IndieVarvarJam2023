@@ -823,6 +823,8 @@ MonoBehaviour:
   animatorProvider: {fileID: 281852011}
   playerModel: {fileID: 11400000, guid: 34d8073a2b2f63d4dbbc695ab31d3dff, type: 2}
   stateModel: {fileID: 11400000, guid: 5b0bce9163c529e4a87e37798aebd513, type: 2}
+  imageDeath: {fileID: 0}
+  spriteDeath: {fileID: 21300000, guid: 0fc758aab7892374dacf1e11616bed23, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
