@@ -8,7 +8,6 @@ namespace Jam.UI.Story
 {
     public class BeginStoryView : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField] private int indexNextScene = 1;
         [SerializeField] private Image image;
         [SerializeField] private Sprite[] spriteStories;
 
@@ -30,6 +29,6 @@ namespace Jam.UI.Story
             image.sprite = spriteStories[idStory];
         }
 
-        private void LoadNextScene() => SceneManager.LoadScene(indexNextScene);
+        private void LoadNextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
