@@ -11,7 +11,7 @@ namespace Jam.Enemy.StateMachine.State
     using Jam.Enemy.View.Abstaction;
     using Jam.Player.Controllers;
 
-    public class EnemyAttackState : EnemyBaseState, IInitializable, IInitializable<PlayerController>,
+    public class EnemyAttackState : EnemyBaseState, IInitializable, IInitializable<PlayerController>, IInitializable<NavMeshAgent>,
         IInitializable<AbstractEnemyView>, IInitializable<IEnemyModel>, IInitializable<IAttackEnemyModel>
     {
         private AbstractEnemyView _animator;
@@ -19,18 +19,24 @@ namespace Jam.Enemy.StateMachine.State
         private IEnemyModel _model;
         private IAttackEnemyModel _attackModel;
         private ITakeDamage _takeDamage;
+        private NavMeshAgent _enemy;
 
-        private float _timeForAttack = 2.0f;
         private float _timerForAttack;
+        private Vector3 StartPosition;
+        private Vector3 directionRotation;
 
         public override void Enter()
         {
-            _timerForAttack = Time.time;
+            _enemy.ResetPath();
+            Attack();
+            StartPosition = _enemy.transform.position;
         }
 
         public override void Update()
         {
-            if (_timerForAttack + _timeForAttack < Time.time)
+            Rotation();
+            _enemy.transform.position = StartPosition;
+            if (_timerForAttack + _attackModel.CoolDown < Time.time)
             {
                 Attack();
             }
@@ -38,7 +44,7 @@ namespace Jam.Enemy.StateMachine.State
 
         public override void Exit()
         {
-            Debug.Log("Конец атаки");
+
         }
         
         private void Attack()
@@ -46,6 +52,12 @@ namespace Jam.Enemy.StateMachine.State
             _animator.Attack();
             _timerForAttack = Time.time;
             _takeDamage.TakeDamage(_attackModel.Damage);
+        }
+
+        private void Rotation()
+        {
+            directionRotation = _player.transform.position - _enemy.transform.position;
+            _enemy.transform.rotation = Quaternion.Lerp(_enemy.transform.rotation, Quaternion.LookRotation(directionRotation), Time.deltaTime * 50);
         }
 
         #region Init
@@ -69,6 +81,11 @@ namespace Jam.Enemy.StateMachine.State
         public void Init(AbstractEnemyView model)
         {
             _animator = model;
+        }
+
+        public void Init(NavMeshAgent model)
+        {
+            _enemy = model;
         }
         #endregion
     }

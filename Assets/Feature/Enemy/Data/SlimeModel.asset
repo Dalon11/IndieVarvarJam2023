@@ -15,5 +15,5 @@ MonoBehaviour:
   maxHealth: 10
   speedWalk: 2
   speedRun: 5
-  distanceToAttackPlayer: 1
+  distanceToAttackPlayer: 1.5
   distanceToChasePlayer: 10
