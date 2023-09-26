@@ -4,7 +4,7 @@ namespace Jam.Model.Abstraction
 {
     public interface IModel
     {
-        public IReactiveProperty<float> Health { get; }
+        public IReadOnlyReactiveProperty<float> Health { get; }
         
         public float SpeedMove { get; }
 

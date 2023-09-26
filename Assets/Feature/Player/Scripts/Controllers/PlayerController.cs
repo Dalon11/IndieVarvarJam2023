@@ -7,29 +7,38 @@ using Jam.Model.Abstraction;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 namespace Jam.Player.Controllers
 {
-    using Views;
     using Movement;
+    using Jam.Animation;
+    using Jam.Animation.Abstraction;
 
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private HeroView view;
         [SerializeField] private GameObject heroPrefab;
         [SerializeField] private AbstractInput input;
-
+        [Space]
         [SerializeField] private PlayerModel model;
         [SerializeField] private StateModel stateModel;
         [SerializeField] private AttackModel attackModel;
+        [Space]
+        [SerializeField] private Weapon weapon;
+        [SerializeField] private AnimatorProvider animatorProvider;
 
         private List<IInitializable> _initializableObjects;
         private Updater _updator;
         private PlayerModel _playerModel;
 
         private void Awake()
-        {           
+        {
             Initialization();
+            stateModel.IsDeath.Value = false;
+            stateModel.IsDeath.Subscribe(x =>
+            {
+             //   Debug.LogError($"isdeat + {x}");
+            }).AddTo(this);
         }
 
         private void Update() => _updator.Update();
@@ -53,7 +62,8 @@ namespace Jam.Player.Controllers
             {
                 new MovementController(),
                 new RotationController(),
-                new CharacterDamageController()
+                new CharacterDamageController(),
+                new AttackController(weapon)
             };
 
             _playerModel = Instantiate(model);
@@ -64,11 +74,16 @@ namespace Jam.Player.Controllers
                 Init<AbstractInput>(input, _initializableObjects[i]);
                 Init<IUpdater>(_updator, _initializableObjects[i]);
 
+
+                Init<IShowAttack>(animatorProvider, _initializableObjects[i]);
+                Init<IShowMovement>(animatorProvider, _initializableObjects[i]);
+
                 Init<IModel>(_playerModel, _initializableObjects[i]);
                 Init<IDecreaseHealth>(_playerModel, _initializableObjects[i]);
 
                 Init<IStateModel>(stateModel, _initializableObjects[i]);
 
+                
                 Init<IAttackModel>(attackModel, _initializableObjects[i]);
             }
         }

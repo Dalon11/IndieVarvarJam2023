@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Jam.Model
@@ -22,12 +20,20 @@ namespace Jam.Model
             _health.Value = maxHeath;
         }
 
-        public IReactiveProperty<float> Health => _health;
+        public IReadOnlyReactiveProperty<float> Health => _health;
         public float SpeedMove => speedMove;
         public float ForceRotate => forceRotate;
 
-        public void IncreaseHealth(float value) => _health.Value += value;
-        public void DecreaseHealth(float value) => _health.Value -= value;
+        public void IncreaseHealth(float value)
+        {
+            if (_health.Value < maxHeath)
+                _health.Value += value;
+        }
 
+        public void DecreaseHealth(float value)
+        {
+            if (_health.Value > 0)
+                _health.Value -= value;
+        }
     }
 }

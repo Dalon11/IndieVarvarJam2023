@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+ 
 using UniRx;
 using UnityEngine;
 
@@ -11,25 +10,20 @@ namespace Jam.GameInput
         private readonly string _horizontal = "Horizontal";
         private readonly string _vertical = "Vertical";
 
-        private ReactiveProperty<bool> _attackButtonDown;
-        private ReactiveProperty<float> _x;
-        private ReactiveProperty<float> _y;
+        private ReactiveProperty<bool> _attackButton = new ReactiveProperty<bool>();
+        private ReactiveProperty<float> _x = new ReactiveProperty<float>();
+        private ReactiveProperty<float> _y = new ReactiveProperty<float>();
 
-        public override IReactiveProperty<bool> AttackButtonDown => _attackButtonDown;
+        public override IReadOnlyReactiveProperty<bool> AttackButton => _attackButton;
 
-        public override IReactiveProperty<float> X => _x;
+        public override IReadOnlyReactiveProperty<float> X => _x;
 
-        public override IReactiveProperty<float> Y => _y;
-        private void OnEnable()
-        {
-            _attackButtonDown = new ();
-            _x = new();
-            _y = new();
-        }
+        public override IReadOnlyReactiveProperty<float> Y => _y;
+
 
         private void Update()
         {
-            _attackButtonDown.Value = Input.GetMouseButtonDown(0);
+            _attackButton.Value = Input.GetMouseButton(0);
 
             _x.Value = Input.GetAxis(_horizontal);
             _y.Value = Input.GetAxis(_vertical);

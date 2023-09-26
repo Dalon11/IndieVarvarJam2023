@@ -7,7 +7,7 @@ namespace Jam.Enemy.Model.Abstraction
 {
     public interface IEnemyModel
     {
-        public ReactiveProperty<float> Health { get; }
+        public IReadOnlyReactiveProperty<float> Health { get; }
 
         public float SpeedWalk { get; }
         public float SpeedRun { get; }

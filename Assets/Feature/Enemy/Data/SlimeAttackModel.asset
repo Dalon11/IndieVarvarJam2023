@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SlimeAttackModel
   m_EditorClassIdentifier: 
   timeAttack: 3
-  coolDown: 5
+  coolDown: 3
   damage: 10
