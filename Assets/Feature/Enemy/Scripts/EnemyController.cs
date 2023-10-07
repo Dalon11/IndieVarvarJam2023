@@ -16,7 +16,7 @@ namespace Jam.Enemy.StateMachine
     using State.Abstraction;
     public class EnemyController : MonoBehaviour, ITakeDamage
     {
-        [SerializeField] private PlayerController _player; /// Поиск надо поменять.
+        [SerializeField] private GameObject _enemyGameObject;    
         [SerializeField] private EnemyModel enemyModel;
         [SerializeField] private AttackEnemyModel attackModel;
         [SerializeField] private NavMeshAgent agent;
@@ -24,6 +24,7 @@ namespace Jam.Enemy.StateMachine
 
         private EnemyModel _enemyModel;
         private AttackEnemyModel _attackModel;
+        private PlayerController _player;
 
         private List<IInitializable> _enemyStates;
         private EnemyAttackState _attackState;
@@ -35,6 +36,21 @@ namespace Jam.Enemy.StateMachine
 
         private void Start()
         {
+            GameObject playerPrefab = GameObject.FindGameObjectWithTag("Player");
+            if (playerPrefab == null)
+                return;
+
+            for (int i = 0; i < playerPrefab.transform.childCount; i++)
+            {
+                if (playerPrefab.transform.GetChild(i).gameObject.TryGetComponent(out _player))
+                {
+#if UNITY_EDITOR
+                    Debug.Log("Найден игрок");
+#endif
+                    break;
+                }
+            }
+
             Init();
             _currentState = _idleState;
         }
@@ -43,7 +59,10 @@ namespace Jam.Enemy.StateMachine
         {
             _currentState.Update();
             if (_player != null)
+            {
                 DistanceCalculation();
+            }
+
         }
 
         private void Init()
@@ -111,9 +130,8 @@ namespace Jam.Enemy.StateMachine
             _enemyModel.DecreaseHealth(damage);
             animator.TakeDamage();
             _currentState = _idleState;
-
             if (_enemyModel.Health.Value <= 0)
-                Destroy(gameObject);
+                Destroy(_enemyGameObject);
         }
     }
 }

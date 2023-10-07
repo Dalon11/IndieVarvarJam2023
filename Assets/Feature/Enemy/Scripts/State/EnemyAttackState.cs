@@ -9,6 +9,7 @@ namespace Jam.Enemy.StateMachine.State
 {
     using Abstraction;
     using Jam.Enemy.View.Abstaction;
+    using Jam.Player;
     using Jam.Player.Controllers;
 
     public class EnemyAttackState : EnemyBaseState, IInitializable, IInitializable<PlayerController>, IInitializable<NavMeshAgent>,
@@ -63,8 +64,8 @@ namespace Jam.Enemy.StateMachine.State
         public void Init(PlayerController model)
         {
             _player = model;
-            
-            _takeDamage = _player.GetComponent<PlayerController>().GetController<ITakeDamage>();
+
+            _takeDamage = _player.GetComponent<PlayerController>().GetController<CharacterDamageController>() as ITakeDamage;
         }
 
         public void Init(IAttackEnemyModel model)
