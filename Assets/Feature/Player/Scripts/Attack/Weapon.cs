@@ -7,12 +7,13 @@ namespace Jam.Player
     public class Weapon : MonoBehaviour
     {        
         public event Action<ITakeDamage> onTriggerEnter = delegate { };
+        private ITakeDamage _takeDamageController;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other is ITakeDamage controller)
+            if (other.gameObject.TryGetComponent<ITakeDamage>(out _takeDamageController))
             {
-                onTriggerEnter.Invoke(controller);
+                onTriggerEnter.Invoke(_takeDamageController);
             }
         }
 
